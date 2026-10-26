@@ -15,10 +15,10 @@ go build -o resolve ./cmd/resolve
 ./resolve sync --remote origin pull
 ```
 
-All commands accept `--repo <path>` before positional arguments. The JSON output is intended for Reflect, Term, and a future Rally workspace. Sync requires an ordinary configured Git remote. Resolve data is not added to the source branch or working tree.
+All commands accept `--repo <path>` before positional arguments. The JSON output is intended for Reflect, Ridge, and a future Rally workspace. Sync requires an ordinary configured Git remote. Resolve data is not added to the source branch or working tree.
 
 ## Current boundary
 
-Resolve owns ticket identity and state. Reflect owns coding subtasks and agent execution. Term can show and claim tickets; Record can cite ticket IDs in checkpoints; Rally can link messages to tickets. These products communicate through ticket IDs and JSON, with no Go import dependency yet.
+Resolve owns ticket identity and state. Reflect owns coding subtasks and agent execution. Ridge can show and claim tickets; Record can cite ticket IDs in checkpoints; Rally can link messages to tickets. These products communicate through ticket IDs and JSON, with no Go import dependency yet.
 
 The initial version supports create, comment, status, list, show, and Git push/pull of ticket events. Events are Git content-addressed, but actor names are self-reported; signatures, authorization, attachments, import bridges, and a web UI are future work. Concurrent updates converge deterministically by logical clock and event ID; a simultaneous claim is visible in history but only one claimant wins the projected state.
